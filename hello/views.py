@@ -91,11 +91,11 @@ new_candidates_json = NewCandidatesJSONView.as_view()
 class TopCandidatesJSONView(BaseLineChartView   ):
     candidates_jobs = Jobs_Candidates.objects.all()
     job_count = {}
-    for c in candidates_jobs:
-        if not  c.candidate_id in job_count:
-            job_count[c.candidate_id] = 1
-        else:
-            job_count[c.candidate_id] = job_count[c.candidate_id] + 1
+    # for c in candidates_jobs:
+    #     if not  c.candidate_id in job_count:
+    #         job_count[c.candidate_id] = 1
+    #     else:
+    #         job_count[c.candidate_id] = job_count[c.candidate_id] + 1
     sorted_keys = sorted(job_count, key=job_count.get,  reverse=True)[:5]
 
     def get_labels(self):
