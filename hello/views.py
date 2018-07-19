@@ -26,7 +26,6 @@ from django.contrib import messages
 from .forms import LoginForm, SignUpForm, ProfileForm, CreateJobForm ,SelectJobForm , NameForm
 from .models import Candidate, Function, Province , Industry, Education, Profile, Job, Jobs_Candidates
 from .tables import CandidateTableMobile, CandidateTableDesktop
-from .factories import CandidateFactory
 
 import datetime
 import pytz
