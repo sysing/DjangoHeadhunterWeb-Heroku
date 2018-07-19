@@ -2,7 +2,6 @@ from django.urls import path, include, re_path
 from . import views
 from django.shortcuts import render_to_response
 from django.contrib.auth import views as auth_views
-from rest_framework import routers
 from .forms import LoginForm
 
 # router = routers.DefaultRouter()

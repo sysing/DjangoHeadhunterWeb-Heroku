@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'bootstrap3',
     'bootstrapform',
     'django_tables2',
-    'rest_framework',
     'chartjs',
     'django_user_agents'
 ]

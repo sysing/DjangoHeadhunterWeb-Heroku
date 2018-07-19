@@ -1,7 +1,5 @@
 import sys
 
-from rest_framework import viewsets,permissions
-
 from django.http import HttpResponse,QueryDict
 from django.shortcuts import render, redirect
 from django.contrib import messages
