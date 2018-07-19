@@ -7,6 +7,12 @@ django = "*"
 gunicorn = "*"
 django-heroku = "*"
 requests = "*"
+"django-tables2" = "*"
+"django-bootstrap3" = "*"
+django-bootstrap-form = "*"
+django-chartjs = "*"
+django-filters = "*"
+django-user-agents = "*"
 
 [requires]
 python_version = "3.6"
