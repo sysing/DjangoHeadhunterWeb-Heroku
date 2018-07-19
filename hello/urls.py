@@ -31,10 +31,10 @@ urlpatterns = [
     re_path(r'^language/(?P<language>[a-z\-]+)/$',views.language,name="language"),
     re_path(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',views.activate, name='activate'),
 
-    path('dashboard',views.dashboard, name ='dashboard'),
-    path('active_users',views.active_users_json, name = "active_users_json"),
-    path('new_candidates',views.new_candidates_json, name = "new_candidates_json"),
-    path('top_candidates',views.top_candidates_json, name = "top_candidates_json"),
-    path('top_functions',views.top_functions_json, name = "top_functions_json"),
-    path('line_chart_json',views.line_chart_json, name = "line_chart_json"),
+    # path('dashboard',views.dashboard, name ='dashboard'),
+    # path('active_users',views.active_users_json, name = "active_users_json"),
+    # path('new_candidates',views.new_candidates_json, name = "new_candidates_json"),
+    # path('top_candidates',views.top_candidates_json, name = "top_candidates_json"),
+    # path('top_functions',views.top_functions_json, name = "top_functions_json"),
+    # path('line_chart_json',views.line_chart_json, name = "line_chart_json"),
 ]
