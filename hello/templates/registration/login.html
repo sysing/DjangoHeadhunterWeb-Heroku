@@ -1,0 +1,30 @@
+{% extends 'listing/header.html' %}
+{% block content %}
+
+    <div id="content-container" class="container">
+
+      <div class="form-group">
+            <form id="login-form" method="post"
+                  action="{% url 'login' %}">
+                {% csrf_token %}
+                  <label for="id_username">登录名</label>
+                  <input id="id_username" name="username" type="text" class="form-control">
+                  <label for="id_password">密码</label>
+                  <input id="id_password" name="password" type="password" class="form-control">
+                {% if form.errors %}
+                  <p class=" label label-danger">
+                      Your username and password didn't match.
+                      Please try again.
+                  </p>
+                {% endif %}
+
+                <input type="submit" value="登陆"
+                       class="btn btn-primary pull-right" />
+                <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+            <p>
+               <h5>没有账号请在此<a href= {% url 'signup' %}>注册</a></h5>
+            </p>
+        </div>
+    </div>
+{% endblock content %}

@@ -39,7 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hello'
+    'hello',
+    'bootstrap3',
+    'bootstrapform',
+    'django_tables2',
+    'rest_framework',
+    'chartjs',
+    'django_user_agents'
 ]
 
 MIDDLEWARE = [
@@ -50,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'listing.middleware.LastActivityMiddleware',
+    'django_user_agents.middleware.UserAgentMiddleware',
 ]
 
 ROOT_URLCONF = 'gettingstarted.urls'
@@ -116,7 +124,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+SHORT_DATETIME_FORMAT  = "d-m-Y H:i"
 
+STATICFILES_DIRS = (
+    'python-getting-started/hello/static',
+)
+STATIC_URL = '/static/'
+LOGIN_REDIRECT_URL = '/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 

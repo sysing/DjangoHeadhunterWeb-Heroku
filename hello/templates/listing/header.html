@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <title>经纬直通车</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load staticfiles %}
+  {% load templatehelpers %}
+  <link rel = "stylesheet" href ="{% static 'listing/css/bootstrap.min.css' %}" type = "text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="{% static 'listing/js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="http://livejs.com/live.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+  <style>
+    .navbar{
+      margin-bottom:0;
+      border-radius:0;
+    }
+    tr:hover {
+    background-color: #f7f1c5;
+    }
+    table {}
+    /* tr{
+      height:10px;
+    } */
+  </style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">
+    <img src="{% static 'listing/images/matrix_logo.png' %}" width="auto" height="75" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      {% if search_bar %}
+      <li class="nav-item">
+        <form class="form-inline my-2 my-lg-0" method="GET" >
+          <input name='search' class="form-control mr-sm-2" type="search" placeholder="搜索" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value='search' >搜索  </button>
+        </form>
+      </li>
+        {% for criteria in criterias %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{criteria.first.get_chinese_label}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% for c in criteria %}
+              {% with params=request.GET.urlencode %}
+                <a class="dropdown-item" href="{% relative_url c.get_filter_id c.id params%}&rm=page">{{c.name}}</a>
+              {% endwith %}
+            {% endfor %}
+          </div>
+        </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+  </div>
+
+  {% if request.user.is_authenticated %}
+  <div class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      {{ request.user.username}}
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="{% url 'logout' %}">退出账号</a>
+      <a class="dropdown-item" href="{% url 'update_profile'%}">账号设置</a>
+    </div>
+  </div>
+  {% else %}
+    <a class="nav-link disabled" href="#">
+      <a href="/login">登录/注册</a>
+    </a>
+  {% endif %}
+</nav>
+
+<div class ='container' style="margin:0px;">
+    {% for k,v in filters.items %}
+      {% with params=request.GET.urlencode %}
+        <a href="{% relative_url 'rm'  k params %}" class="btn btn-info">
+              {{v}} x
+        </a>
+      {% endwith %}
+    {% endfor %}
+</div>
+
+{% if messages %}
+  <div class ='container' style="margin:0px;">
+      {% for message in messages %}
+          <p{% if message.tags %} class= "alert alert-{{ message.tags }}" {% endif %}>{{ message }}</p>
+      {% endfor %}
+  </div>
+{% endif %}
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

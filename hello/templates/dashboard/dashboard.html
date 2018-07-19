@@ -1,0 +1,63 @@
+{% extends "listing/header.html" %}
+{% load bootstrap %}
+
+{%block content%}
+        <div>
+          <a href="/form?{{ form.as_url_args }}&format=csv">Download As CSV</a>
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-3">
+            <canvas id="active_user" width="500" height="400"></canvas>
+            <script type="text/javascript">
+                $.get('{% url "active_users_json"%}', function(data) {
+                    var ctx = $("#active_user").get(0).getContext("2d");
+                    new Chart(ctx, {
+                        type: 'line', data: data
+                    });
+                });
+            </script>
+          </div>
+
+          <div class="col-md-3">
+            <canvas id="new_candidates" width="500" height="400"></canvas>
+            <script type="text/javascript">
+                $.get('{% url "new_candidates_json" %}', function(data) {
+                    var ctx = $("#new_candidates").get(0).getContext("2d");
+                    new Chart(ctx, {
+                        type: 'line', data: data
+                    });
+                });
+            </script>
+          </div>
+        </div>
+
+        <div class = 'row'>
+          <div class="col-md-3">
+            <canvas id="top_candidates" width="500" height="400"></canvas>
+            <script type="text/javascript">
+                $.get('{% url "top_candidates_json" %}', function(data) {
+                    var ctx = $("#top_candidates").get(0).getContext("2d");
+                    new Chart(ctx, {
+                        type: 'bar', data: data
+                    });
+                });
+            </script>
+          </div>
+
+          <div class="col-md-3">
+            <canvas id="top_functions" width="500" height="400"></canvas>
+            <script type="text/javascript">
+                $.get('{% url "top_functions_json" %}', function(data) {
+                    var ctx = $("#top_functions").get(0).getContext("2d");
+                    new Chart(ctx, {
+                        type: 'bar', data: data
+                    });
+                });
+            </script>
+          </div>
+
+
+        </div>
+{% endblock %}
