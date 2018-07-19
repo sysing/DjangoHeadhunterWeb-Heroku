@@ -25,7 +25,6 @@ from django.contrib import messages
 
 from .forms import LoginForm, SignUpForm, ProfileForm, CreateJobForm ,SelectJobForm , NameForm
 from .models import Candidate, Function, Province , Industry, Education, Profile, Job, Jobs_Candidates
-from .serializers import LanguageSerializer, ProgrammerSerializer
 from .tables import CandidateTableMobile, CandidateTableDesktop
 from .filters import CandidateFilter
 from .factories import CandidateFactory
