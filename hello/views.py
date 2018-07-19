@@ -33,7 +33,7 @@ from django.utils import timezone
 from django.views.generic import TemplateView
 from chartjs.views.lines import BaseLineChartView
 
-# 
+#
 # class ActiveUsersJSONView(BaseLineChartView):
 #
 #     def get_labels(self):
@@ -341,6 +341,15 @@ def activate(request, uidb64, token):
         return HttpResponse('Activation link is invalid!')
 
 
+def db(request):
+
+    greeting = Greeting()
+    greeting.save()
+
+    greetings = Greeting.objects.all()
+
+    return render(request, 'db.html', {'greetings': greetings})
+    
 # from django.shortcuts import render
 # from django.http import HttpResponse
 #
@@ -359,11 +368,3 @@ def activate(request, uidb64, token):
 #     return HttpResponse('<pre>' + r.text + '</pre>')
 #
 #
-# def db(request):
-#
-#     greeting = Greeting()
-#     greeting.save()
-#
-#     greetings = Greeting.objects.all()
-#
-#     return render(request, 'db.html', {'greetings': greetings})
