@@ -60,6 +60,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'hello.middleware.LastActivityMiddleware',
     'django_user_agents.middleware.UserAgentMiddleware',
+     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'gettingstarted.urls'
@@ -135,6 +136,7 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Extra places for collectstatic to find static files.
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
