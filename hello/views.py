@@ -221,7 +221,7 @@ def index(request):
         table = CandidateTableDesktop(candidate)
     table.paginate(page=request.GET.get('page', 1), per_page=10)
     context['table'] = table
-    return render(request,'index.html',context)
+    return render(request,'listing/home.html',context)
 
 @login_required
 @transaction.atomic
