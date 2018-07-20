@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Function, Candidate, Industry, Province, Education, Profile, Job, Jobs_Candidates, Candidate_Status
+from .models import Function, Candidate, Industry, Province, Education, Profile, Job, Jobs_Candidates, Candidate_Status,Sex
 
 admin.site.register(Candidate)
 admin.site.register(Jobs_Candidates)
@@ -12,3 +12,4 @@ admin.site.register(Education)
 admin.site.register(Profile)
 admin.site.register(Job)
 admin.site.register(Candidate_Status)
+admin.site.register(Sex)
