@@ -17,10 +17,11 @@
                       Please try again.
                   </p>
                 {% endif %}
-
-                <input type="submit" value="登陆"
-                       class="btn btn-primary pull-right" />
-                <input type="hidden" name="next" value="{{ next }}" />
+                <p>
+                  <input type="submit" value="登陆"
+                         class="btn btn-primary pull-right" />
+                  <input type="hidden" name="next" value="{{ next }}" />
+                </p>
             </form>
             <p>
                <h5>没有账号请在此<a href= {% url 'signup' %}>注册</a></h5>
