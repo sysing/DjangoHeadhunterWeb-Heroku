@@ -48,7 +48,7 @@ class CandidateTableDesktop(tables.Table):
         }
         orderable = False
         # exclude = ('index','age','function','industry','role','current_salary','province','education','id','name','resume_link','ctime','status')
-        fields = ('index','name','age','education','province','role','industry','function','companies','current_salary','expected_salary','remarks')
+        fields = ('index','age','education','province','role','industry','function','companies','current_salary','expected_salary','remarks')
         attrs = {'class': 'table'}
 
     def render_intro(self,value):

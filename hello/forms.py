@@ -59,7 +59,7 @@ class ProfileForm(forms.ModelForm):
     company_description = forms.CharField(widget=forms.Textarea, label = format_html(mark_compulsory('公司简介')))
     class Meta:
         model = Profile
-        exclude = ('user',)
+        exclude = ('user','is_verified')
 
 class CreateJobForm(forms.ModelForm):
 
