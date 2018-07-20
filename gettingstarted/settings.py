@@ -137,7 +137,9 @@ LOGIN_REDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 # Extra places for collectstatic to find static files.
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
