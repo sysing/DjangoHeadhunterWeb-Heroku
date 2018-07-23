@@ -1,7 +1,6 @@
 import sys
 import datetime
 import pytz
-import request
 import os
 
 from django.http import HttpResponse,QueryDict
@@ -211,7 +210,7 @@ def index(request):
             if  querydict.__contains__(vals[0]):
                 querydict.pop(vals[0])
             return redirect('/?{}'.format(querydict.urlencode()))
-            
+
     context['candidate'] = candidate
     context['get_dict'] = request.GET.dict()
     if  request.user_agent.is_mobile: # returns True

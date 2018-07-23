@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'django_tables2',
     'chartjs',
     'django_user_agents',
-    'whitenoise.runserver_nostatic'
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
