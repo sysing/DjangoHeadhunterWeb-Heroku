@@ -6,8 +6,6 @@ from django.dispatch import receiver
 # Create your models here.
 class Greeting(models.Model):
     when = models.DateTimeField('date created', auto_now_add=True)
-from django.db import models
-
 
 class Candidate(models.Model):
     index = models.CharField(max_length = 9, verbose_name ='编号', unique = True)

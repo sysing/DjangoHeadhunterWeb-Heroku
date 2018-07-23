@@ -1,4 +1,8 @@
 import sys
+import datetime
+import pytz
+import request
+import os
 
 from django.http import HttpResponse,QueryDict
 from django.shortcuts import render, redirect
@@ -26,9 +30,6 @@ from django.contrib import messages
 from .forms import LoginForm, SignUpForm, ProfileForm, CreateJobForm ,SelectJobForm , NameForm
 from .models import Candidate, Function, Province , Industry, Education, Profile, Job, Jobs_Candidates
 from .tables import CandidateTableMobile, CandidateTableDesktop
-
-import datetime
-import pytz
 from django.utils import timezone
 from django.views.generic import TemplateView
 from chartjs.views.lines import BaseLineChartView
@@ -210,9 +211,7 @@ def index(request):
             if  querydict.__contains__(vals[0]):
                 querydict.pop(vals[0])
             return redirect('/?{}'.format(querydict.urlencode()))
-                    # for criteria in context['criterias']:
-                    # candidates = criteria.filter(code__icontains=vals[0])
-                    # candidates.extend = criteria.filter(name__icontains=vals[0])
+            
     context['candidate'] = candidate
     context['get_dict'] = request.GET.dict()
     if  request.user_agent.is_mobile: # returns True
