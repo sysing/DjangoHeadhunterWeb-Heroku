@@ -47,11 +47,13 @@ INSTALLED_APPS = [
     'bootstrapform',
     'django_tables2',
     'chartjs',
-    'django_user_agents'
+    'django_user_agents',
+    'whitenoise.runserver_nostatic'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -60,7 +62,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'hello.middleware.LastActivityMiddleware',
     'django_user_agents.middleware.UserAgentMiddleware',
-     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'gettingstarted.urls'
