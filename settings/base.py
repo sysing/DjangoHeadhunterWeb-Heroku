@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hello',
-    'setting',
+    'settings',
     'bootstrap3',
     'bootstrapform',
     'django_tables2',
