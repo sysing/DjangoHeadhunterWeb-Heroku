@@ -1,7 +1,7 @@
 from django.conf.urls import include, url
 from django.urls import path
 from django.conf.urls.static import static
-import .settings as settings
+from .settings import base as settings
 
 from django.contrib import admin
 admin.autodiscover()
