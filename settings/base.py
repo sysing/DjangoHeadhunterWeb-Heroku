@@ -15,20 +15,16 @@ import django_heroku
 import dj_database_url
 import psycopg2
 
+ALLOWED_HOSTS =[]
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DATABASE_URL = os.environ['DATABASE_URL']
 
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -79,7 +75,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'gettingstarted.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
