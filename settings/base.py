@@ -28,8 +28,6 @@ conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-ALLOWED_HOSTS = []
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -141,5 +139,4 @@ STATICFILES_DIRS = (
 )
 # Extra places for collectstatic to find static files.
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-
 django_heroku.settings(locals())
