@@ -20,7 +20,7 @@ urlpatterns = [
     re_path(r'candidate_create_job/(?P<pk>\d+)/', views.candidate_create_job, name='candidate_create_job'),
     re_path(r'candidate_select_job/(?P<pk>\d+)/', views.candidate_select_job, name='candidate_select_job'),
 
-    re_path(r'^password_reset/$', auth_views.password_reset, name='password_reset'),
+    re_path(r'^password_reset/$', auth_views.password_reset,{'template_name': 'registration/password_reset_form.html'}, name='password_reset'),
     re_path(r'^password_reset/done/$', auth_views.password_reset_done, name='password_reset_done'),
     re_path(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         auth_views.password_reset_confirm, name='password_reset_confirm'),
